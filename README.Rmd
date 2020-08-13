@@ -1,0 +1,64 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/",
+  out.width = "100%"
+)
+
+library(tibble)
+datos_regionales <- tribble(~"region", ~"valor",
+                            "Biobio", 0.65,
+                            "Bio-bío", 0.54,
+                            "Valpo", 0.67,
+                            "Valparaiso", 0.74,
+                            "RM", 0.66,
+                            "R.M.", 0.83,
+                            "Metropolitana", 0.75,
+                            "Aisén", 0.75,
+                            "Aysén del Gral. Carlos Ibañez", 0.5
+                            )
+```
+
+# territorial
+
+<!-- badges: start -->
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+
+<!-- badges: end -->
+
+El objetivo del paquete **territorial** es proveer funciones de limpieza para datos sobre unidades administrativas de organización territorial. El paquete se encuentra actualmente en desarrollo y está disponible solo la función para estandarizar nombres de regiones de Chile. 
+
+## Instalación
+
+``` r
+#install.packages("remotes")
+remotes::install_github("rivaquiroga/territorial")
+```
+
+## Ejemplo
+
+Es habitual encontrarnos con datos en que los nombres de regiones no se encuentran escritos de manera uniforme, sobre todo cuando son datos que han sido ingresados manualmente. Eso hace que sea difícil trabajar con ellos y que tengamos que dedicar tiempo a normalizar los nombres.
+
+```{r example, message= FALSE}
+
+datos_regionales
+```
+
+El objetivo del paquete `territorial` es ofrecer funciones sencillas de limpieza de datos que permitan hacer más fácil el trabajo con este tipo de variables. 
+Las funciones están pensadas para utilizarse, por ejemplo, en conjunto con `dplyr::mutate()`. A continuación se muestra cómo se podría utilizar la función `estandariza_regiones()` con los datos anteriores:
+
+```{r ejemplo, message = FALSE}
+
+library(territorial)
+library(dplyr)
+
+mutate(datos_regionales, region = estandariza_regiones(region))
+
+```

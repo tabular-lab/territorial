@@ -20,3 +20,5 @@ Imports:
     tibble
 Suggests: 
     testthat
+URL: https://github.com/rivaquiroga/territorial
+BugReports: https://github.com/rivaquiroga/territorial/issues

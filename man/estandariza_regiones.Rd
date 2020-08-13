@@ -7,7 +7,7 @@
 estandariza_regiones(regiones)
 }
 \arguments{
-\item{x}{Un vector de caracteres}
+\item{regiones}{Un vector de caracteres}
 }
 \value{
 Devuelve un vector de caracteres con los nombres

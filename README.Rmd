@@ -19,9 +19,10 @@ datos_regionales <- tribble(~"region", ~"valor",
                             "Valpo", 0.67,
                             "Valparaiso", 0.74,
                             "RM", 0.66,
-                            "R.M.", 0.83,
+                            "R. Metropolitana", 0.83,
                             "Metropolitana", 0.75,
                             "Aisén", 0.75,
+                            "Aisén del General Carlos Ibañez del Campo", 0.75,
                             "Aysén del Gral. Carlos Ibañez", 0.5
                             )
 ```
@@ -52,7 +53,7 @@ datos_regionales
 ```
 
 El objetivo del paquete `territorial` es ofrecer funciones sencillas de limpieza de datos que permitan hacer más fácil el trabajo con este tipo de variables. 
-Las funciones están pensadas para utilizarse, por ejemplo, en conjunto con `dplyr::mutate()`. A continuación se muestra cómo se podría utilizar la función `estandariza_regiones()` con los datos anteriores:
+A continuación se muestra cómo se podría utilizar la función `estandariza_regiones()` en conjunto con `dplyr::mutate()` para los datos anteriores:
 
 ```{r ejemplo, message = FALSE}
 
@@ -62,3 +63,18 @@ library(dplyr)
 mutate(datos_regionales, region = estandariza_regiones(region))
 
 ```
+
+Por defecto, la función devuelve el nombre oficial de la región. Si se utiliza el argumento `nombre_corto = TRUE`, la función devuelve el nombre cuatro de las cuatro regiones para las que su nombre oficial no es el más extendido:
+
+| `nombre_corto = FALSE` (valor por defecto) | `nombre_corto = TRUE` |
+|---|---|
+| Metropolitana de Santiago | Metropolitana |
+| Libertador General Bernardo O'Higgins | O'Higgins |
+| Aysén del General Carlos Ibañez del Campo | Aysén |
+| Magallanes y la Antártica Chilena | Magallanes |
+
+
+```{r}
+mutate(datos_regionales, region = estandariza_regiones(region, nombre_corto = TRUE))
+```
+

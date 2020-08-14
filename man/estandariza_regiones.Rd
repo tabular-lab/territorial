@@ -4,10 +4,15 @@
 \alias{estandariza_regiones}
 \title{Estandariza nombres de regiones de Chile}
 \usage{
-estandariza_regiones(regiones)
+estandariza_regiones(regiones, nombre_corto = FALSE)
 }
 \arguments{
 \item{regiones}{Un vector de caracteres}
+
+\item{nombre_corto}{Si es \code{TRUE}, devuelve el nombre corto
+de las regiones Metropolitana, O'Higgins, Aysén y Magallanes.
+El valor por defecto es \code{FALSE}, que devuelve el nombre oficial
+de la región.}
 }
 \value{
 Devuelve un vector de caracteres con los nombres
@@ -19,12 +24,11 @@ Chile en un vector de caracteres y devuelve el nombre oficial
 de las mismas (por ejemplo, "RM" lo convierte en "Metropolitana
 de Santiago"). Si no reconoce un nombre de región, entonces
 mantiene el provisto originalmente en en el vector de caracteres.
-La función está pensada para ser utilizada en conjunto
-con funciones como dplyr::mutate.
 }
 \examples{
 regiones <- c("Aisén", "Aysén", "Región del Bio-bío",
 "Biobio", "RM", "Metropolitana")
 estandariza_regiones(regiones)
+estandariza_regiones(regiones, nombre_corto = TRUE)
 
 }

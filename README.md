@@ -13,8 +13,9 @@ public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostat
 
 El objetivo del paquete **territorial** es proveer funciones de limpieza
 para datos sobre unidades administrativas de organización territorial.
-El paquete se encuentra actualmente en desarrollo y está disponible solo
-la función para estandarizar nombres de regiones de Chile.
+El paquete se encuentra actualmente en desarrollo y están disponibles
+solo las funciones para estandarizar nombres de regiones de Chile y para
+convertir el código numérico a nombre.
 
 ## Instalación
 

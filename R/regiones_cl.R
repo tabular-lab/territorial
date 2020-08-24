@@ -44,7 +44,7 @@ estandariza_regiones <- function(regiones, nombre_corto = FALSE) {
     regiones <- dplyr::case_when(
       stringr::str_detect({{ regiones }}, stringr::regex("(R\\.*M\\.*|metropol)", ignore_case = TRUE )) ~ "Metropolitana de Santiago",
       stringr::str_detect({{ regiones }}, stringr::regex("higg", ignore_case = TRUE)) ~ "Libertador General Bernardo O'Higgins",
-      stringr::str_detect({{ regiones }}, stringr::regex("a(i|y)s(e|\u00e9)n", ignore_case = TRUE)) ~ "Ays\u00e9n del General Carlos Iba\u00f1ez del Campo",
+      stringr::str_detect({{ regiones }}, stringr::regex("a(i|y)s(e|\u00e9)n", ignore_case = TRUE)) ~ "Ays\u00e9n del General Carlos Ib\u00e1\u00f1ez del Campo",
       stringr::str_detect({{ regiones }}, stringr::regex("magall", ignore_case = TRUE)) ~ "Magallanes y la Ant\u00e1rtica Chilena",
       TRUE ~ as.character({{ regiones }})
     )
@@ -106,7 +106,7 @@ numero_a_nombre <- function(regiones, nombre_corto = FALSE) {
     regiones <- dplyr::case_when(
       stringr::str_detect({{ regiones }}, stringr::regex("(^13$|^XIII$)", ignore_case = TRUE )) ~ "Metropolitana de Santiago",
       stringr::str_detect({{ regiones }}, stringr::regex("(^6$|^VI$)", ignore_case = TRUE)) ~ "Libertador General Bernardo O'Higgins",
-      stringr::str_detect({{ regiones }}, stringr::regex("(^11$|^XI$)", ignore_case = TRUE)) ~ "Ays\u00e9n del General Carlos Iba\u00f1ez del Campo",
+      stringr::str_detect({{ regiones }}, stringr::regex("(^11$|^XI$)", ignore_case = TRUE)) ~ "Ays\u00e9n del General Carlos Ib\u00e1\u00f1ez del Campo",
       stringr::str_detect({{ regiones }}, stringr::regex("(^12$|^XII$)", ignore_case = TRUE)) ~ "Magallanes y la Ant\u00e1rtica Chilena",
       TRUE ~ as.character({{ regiones }})
     )
